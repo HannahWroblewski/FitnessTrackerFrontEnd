@@ -1,5 +1,5 @@
 import axios from 'axios';
-const BASE = 'https://fitnesstrac-kr.herokuapp.com'
+const BASE = 'https://fitnesstrac-kr.herokuapp.com/api'
 
 // this is an example of an api call with axios
 // export async function getUsers() {
@@ -45,10 +45,8 @@ export async function getCurrentUser() {
 export async function registerUser(userName, password) {
   try {
     const { data } = await axios.post(`${BASE}/users/register`, {
-      user: {
         username: userName,
         password: password,
-      },
     });
     return data;
   } catch (error) {
@@ -59,13 +57,86 @@ export async function registerUser(userName, password) {
 export async function loginUser(userName, password) {
   try {
     const {data} = await axios.post(`${BASE}/users/login`, {
-      user: {
         username: userName,
         password: password,
-      },
     });
     return data;
   } catch (error) {
     throw error;
   }
+}
+
+export async function createRoutine() {
+  
+  try {
+    const { data } = await axios.post(
+      `${BASE}/routines`,
+      {
+        routine: {
+          info: info,
+          info: info,
+          info: info
+        }
+      },
+      {
+        headers: {
+          "Content-Type": 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+      }
+    );
+
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
+export async function createActivity() {
+  
+  try {
+    const { data } = await axios.post(
+      `${BASE}/activities`,
+      {
+        activity: {
+          info: info,
+          info: info,
+          info: info
+        }
+      },
+      {
+        headers: {
+          "Content-Type": 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+      }
+    );
+
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export async function deleteRoutine(){
+  
+  try{
+    
+} catch(error){
+  throw error
+} finally{
+  
+}
+
+}
+
+export async function deleteActivity(){
+  
+  try{
+    
+} catch(error){
+  throw error
+} finally{
+  
+}
+
 }
