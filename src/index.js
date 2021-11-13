@@ -10,7 +10,7 @@ import {
   // Redirect
 } from "react-router-dom";
 
-import { Header, Activities, Routines, Users } from "./components";
+import { Header, Activities, NavBar, Routines, Users } from "./components";
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -49,11 +49,16 @@ const App = () => {
   return (
     <Router>
       <div id="App">
-        <Header />
-        <Activities
-          setAllActivities={setAllActivities}
-          allActivities={allActivities}
-        />
+        <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+        <NavBar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+        <Switch>
+          <Route exact path="/activities">
+            <Activities
+              setAllActivities={setAllActivities}
+              allActivities={allActivities}
+            />
+          </Route>
+        </Switch>
       </div>
     </Router>
   );
