@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { createRoutine } from "../api";
 import { getToken, getUser } from "../auth";
-import "./NewRoutine.css";
 
 const NewRoutineForm = ({ setAllRoutine, allRoutine }) => {
   const [title, setTitle] = useState("");
