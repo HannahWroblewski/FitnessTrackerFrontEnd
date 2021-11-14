@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import {createActivity} from "../api";
 import {getToken, getUser} from "../auth";
-import './NewActivity.css'
 
 const NewActivityForm = ({setAllActivity, allActivity}) => {
 const [title, setTitle] = useState('')
